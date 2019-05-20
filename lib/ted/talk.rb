@@ -1,5 +1,5 @@
 class Ted::Talk
-  attr_accessor :title, :speaker, :date, :url
+  attr_accessor :title, :speaker, :date, :url, :length
 
   def self.recent
     self.scrape_talks
@@ -13,21 +13,14 @@ class Ted::Talk
 
   def self.scrape_tedtalks
     doc = Nokogiri::HTML(open("https://www.ted.com/talks"))
-    talk = self.new
-    #doc.css("").each.with_index do |info, index|
-      #if index >= 1
-        #deal.name = info.css("a.itemTitle")[0]['title'].gsub(/\W[a-z][p][a][r]./, "")
-        #prices = info.css("div.itemPrice")[0].text.delete!("\n").strip.split()
-        # =>[discounted price, old price]
-        #deal.price = prices.first
-        #deal.old_price = prices.last
-        #deal.url = info.css('div.itemBottomRow').first.attr("data-href")
-      #else
-      #end
-        #old_price = info.css(".oldpriceLine").text
-        #price = info.css("div.itemPrice")[0].text.gsub("\n","").strip
-        #deal
-    #end
-
+    doc.css("div.media").each do |x|
+      speaker = x.css(".h12").text
+      url = x.css("a.ga-link").first.attr("href").strip
+      date = x.css("span.meta__val").text.strip
+      talk_info = x.css("a.ga-link").text.strip.split("\n")
+      title = talk_info[2]
+      length = talk_info[0]
+      binding.pry
+    end
   end
 end
