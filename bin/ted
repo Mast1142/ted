@@ -1,0 +1,6 @@
+#!/mast/temporary/bin/env ruby
+
+require "bundler/setup"
+require "ted"
+
+Ted::CLI.new.call

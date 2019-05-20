@@ -1,6 +1,7 @@
-require "ted/version"
+require "nokogiri"
+require "open-uri"
+require "pry"
 
-module Ted
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "ted/version"
+require_relative "ted/cli"
+require_relative "ted/talk"
