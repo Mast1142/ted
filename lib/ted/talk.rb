@@ -13,14 +13,16 @@ class Ted::Talk
 
   def self.scrape_tedtalks
     doc = Nokogiri::HTML(open("https://www.ted.com/talks"))
+    talk = self.new
     doc.css("div.media").each do |x|
-      speaker = x.css(".h12").text
-      url = x.css("a.ga-link").first.attr("href").strip
-      date = x.css("span.meta__val").text.strip
+      talk.speaker = x.css(".h12").text
+      talk.url = x.css("a.ga-link").first.attr("href").strip
+      talk.date = x.css("span.meta__val").text.strip
       talk_info = x.css("a.ga-link").text.strip.split("\n")
-      title = talk_info[2]
-      length = talk_info[0]
-      binding.pry
+      talk.title = talk_info[2]
+      talk.length = talk_info[0]
     end
+    talk
   end
 end
+
