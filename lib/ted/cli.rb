@@ -19,11 +19,15 @@ class Ted::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "Enter the number of the deal you'd like more info on or list to see the list again. Type exit to quit the program."
+      puts "Enter the number of the talk you'd like more info on or list to see the list again. Type exit to quit the program."
       input = gets.strip.downcase
       if input.to_i > 0
         the_talk = @talks[input.to_i-1]
-        puts "#{the_talk.title} - #{the_talk.speaker}"
+        puts "  Title: #{the_talk.title}
+        Speaker: #{the_talk.speaker}
+        Posted: #{the_talk.date}
+        Talk Length: #{the_talk.length}
+        URL: #{the_talk.url}"
       elsif input == "list"
         list_talks
       else
