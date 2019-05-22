@@ -1,6 +1,14 @@
 # Ted
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ted`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to your new gem TEDTalk CLI!
+Make sure to change directory to ted with 'cd ted' in your terminal.
+We also want to make sure to run 'bundle install'.
+Run `bin/ted` for an interactive prompt.
+
+Type the number for the TEDTalk you like more info on.
+That will show you the name of the speaker, title of the talk, length of the talk and the URL link to the talk.
+Type "list" to list all the recent talks.
+Type "exit" to exit the program
 
 TODO: Delete this and the text above, and describe your gem
 
